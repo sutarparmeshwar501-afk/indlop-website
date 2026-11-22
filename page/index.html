@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title id="custom-page-head-title">INDlop — Page</title>
+    <meta name="description" id="custom-page-meta-desc" content="INDlop custom community and platform page.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../pages.css">
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="site-shell">
+      <header class="site-header" data-header>
+        <div class="container header-inner">
+          <a class="brand" href="../" aria-label="INDlop home">
+            <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span>INDlop</span>
+          </a>
+          <nav class="desktop-nav" aria-label="Primary navigation">
+            <a data-nav="about" href="../about/">About</a>
+            <a data-nav="features" href="../features/">Features</a>
+            <a data-nav="why-indlop" href="../why-indlop/">Why INDlop</a>
+            <a data-nav="privacy" href="../privacy/">Privacy</a>
+            <a data-nav="community" href="../community/">Community</a>
+            <a data-nav="faq" href="../faq/">FAQ</a>
+          </nav>
+          <div class="header-actions">
+            <a class="text-link" data-nav="contact" href="../contact/">Contact</a>
+            <a class="button button-small button-light" data-nav="join" href="../join/">Join the waitlist <span aria-hidden="true">↗</span></a>
+          </div>
+          <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle>
+            <span></span><span></span>
+          </button>
+        </div>
+        <nav class="mobile-nav" aria-label="Mobile navigation" data-mobile-nav>
+          <a data-nav="about" href="../about/">About</a>
+          <a data-nav="features" href="../features/">Features</a>
+          <a data-nav="why-indlop" href="../why-indlop/">Why INDlop</a>
+          <a data-nav="privacy" href="../privacy/">Privacy</a>
+          <a data-nav="community" href="../community/">Community</a>
+          <a data-nav="faq" href="../faq/">FAQ</a>
+          <a data-nav="contact" href="../contact/">Contact</a>
+          <a class="button button-light" data-nav="join" href="../join/">Join the waitlist <span aria-hidden="true">↗</span></a>
+        </nav>
+      </header>
+
+      <main id="main-content">
+        <!-- Dynamic Page Hero -->
+        <section class="page-hero">
+          <div class="container page-hero-copy reveal is-visible">
+            <div class="page-crumb" id="custom-page-crumb"><span>✦</span> Custom Page</div>
+            <h1 id="custom-page-hero-title">Loading <em>page...</em></h1>
+            <p id="custom-page-hero-sub">Retrieving content from INDlop platform...</p>
+          </div>
+        </section>
+
+        <!-- Dynamic Page Content -->
+        <section class="page-section" style="padding-top: 60px; padding-bottom: 90px;">
+          <div class="container" style="max-width: 860px;">
+            <div id="custom-page-body" class="reveal is-visible" style="font-size: 16px; line-height: 1.8; color: #222;">
+              <p style="color: #666;">Please wait while the page content is loaded.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Callout -->
+        <section class="page-section page-section--soft">
+          <div class="container">
+            <div class="page-callout reveal is-visible">
+              <div>
+                <h3>Looking for early access?</h3>
+                <p>Join the waitlist and help shape the first thoughtful communities.</p>
+              </div>
+              <a class="button button-primary" href="../join/">Join the waitlist <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-top">
+          <div class="footer-brand">
+            <a class="brand brand-footer" href="../" aria-label="INDlop home">
+              <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+              <span>INDlop</span>
+            </a>
+            <p>A social platform<br>for people and ideas.</p>
+          </div>
+          <div class="footer-links">
+            <div>
+              <strong>Explore</strong>
+              <a href="../about/">About INDlop</a>
+              <a href="../features/">Features</a>
+              <a href="../community/">Community</a>
+              <a href="../why-indlop/">Why INDlop</a>
+            </div>
+            <div>
+              <strong>Information</strong>
+              <a href="../privacy/">Privacy</a>
+              <a href="../faq/">Help &amp; FAQ</a>
+              <a href="../contact/">Contact</a>
+              <a href="../join/">Waitlist</a>
+            </div>
+          </div>
+          <div class="footer-signoff">
+            <span>People first.<br>Always in progress.</span>
+            <a class="footer-cursor" href="#top" aria-label="Back to top">↑</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© 2026 INDlop</span>
+          <span>Social, with intention.</span>
+          <div>
+            <a href="../privacy/">Privacy</a>
+            <a href="../contact/">Contact</a>
+            <a href="#top">Back to top ↑</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="../script.js"></script>
+    <script type="module" src="/src/indlop-firebase.ts"></script>
+    <script type="module" src="/src/custom-page.ts"></script>
+  </body>
+</html>

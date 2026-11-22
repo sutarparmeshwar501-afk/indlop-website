@@ -1,0 +1,287 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Registered INDlop user profile",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "User email address",
+          "maxLength": 254
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the user",
+          "maxLength": 100
+        },
+        "role": {
+          "type": "string",
+          "description": "User role",
+          "enum": ["user", "admin"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Account creation timestamp"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp"
+        }
+      },
+      "required": ["email", "role", "createdAt"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "Authorized administrator record",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "Administrator email address",
+          "maxLength": 254
+        },
+        "role": {
+          "type": "string",
+          "description": "Role type",
+          "enum": ["admin", "superadmin"]
+        },
+        "addedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date admin privilege was granted"
+        }
+      },
+      "required": ["email", "role"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Contact form submissions, inquiries, and feedback",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Sender full name",
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "description": "Sender email address",
+          "maxLength": 254
+        },
+        "message": {
+          "type": "string",
+          "description": "Message content or feedback",
+          "maxLength": 5000
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of message",
+          "enum": ["contact", "support", "feedback"]
+        },
+        "status": {
+          "type": "string",
+          "description": "Handling status of the message",
+          "enum": ["Open", "Pending", "Resolved"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when message was submitted"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when message status was updated"
+        }
+      },
+      "required": ["name", "email", "message", "status", "createdAt"]
+    },
+    "Waitlist": {
+      "title": "Waitlist",
+      "description": "Early access waitlist reservation",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Subscriber name",
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "description": "Subscriber email address",
+          "maxLength": 254
+        },
+        "handle": {
+          "type": "string",
+          "description": "Desired INDlop handle",
+          "maxLength": 50
+        },
+        "message": {
+          "type": "string",
+          "description": "Reason for joining early",
+          "maxLength": 1000
+        },
+        "status": {
+          "type": "string",
+          "description": "Waitlist status",
+          "enum": ["Open", "Pending", "Resolved"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Registration timestamp"
+        }
+      },
+      "required": ["name", "email", "status", "createdAt"]
+    },
+    "PageContent": {
+      "title": "PageContent",
+      "description": "Customizable page text content and dynamic pages",
+      "type": "object",
+      "properties": {
+        "slug": {
+          "type": "string",
+          "description": "Page route identifier",
+          "maxLength": 100
+        },
+        "title": {
+          "type": "string",
+          "description": "Main title of the page",
+          "maxLength": 200
+        },
+        "heroTitle": {
+          "type": "string",
+          "description": "Hero display heading",
+          "maxLength": 300
+        },
+        "heroSubtitle": {
+          "type": "string",
+          "description": "Hero descriptive subtitle",
+          "maxLength": 1000
+        },
+        "sectionTitle": {
+          "type": "string",
+          "description": "Secondary section title",
+          "maxLength": 300
+        },
+        "bodyText": {
+          "type": "string",
+          "description": "Detailed text content or paragraphs",
+          "maxLength": 20000
+        },
+        "status": {
+          "type": "string",
+          "description": "Publish status",
+          "enum": ["published", "draft"]
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp"
+        }
+      },
+      "required": ["slug", "title"]
+    },
+    "TestConnection": {
+      "title": "TestConnection",
+      "description": "Connectivity test document",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Test status"
+        }
+      }
+    },
+    "PageVersion": {
+      "title": "PageVersion",
+      "description": "Archived snapshot version of page content",
+      "type": "object",
+      "properties": {
+        "slug": { "type": "string" },
+        "title": { "type": "string" },
+        "heroTitle": { "type": "string" },
+        "heroSubtitle": { "type": "string" },
+        "sectionTitle": { "type": "string" },
+        "bodyText": { "type": "string" },
+        "status": { "type": "string" },
+        "versionNumber": { "type": "number" },
+        "modifiedBy": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "changeSummary": { "type": "string" }
+      },
+      "required": ["slug", "title", "versionNumber", "timestamp"]
+    },
+    "DailyAnalytics": {
+      "title": "DailyAnalytics",
+      "description": "Aggregated privacy-friendly daily traffic analytics",
+      "type": "object",
+      "properties": {
+        "date": { "type": "string" },
+        "totalViews": { "type": "number" },
+        "uniqueSessions": { "type": "number" },
+        "paths": { "type": "object" },
+        "devices": { "type": "object" },
+        "referrers": { "type": "object" },
+        "lastUpdated": { "type": "string" }
+      },
+      "required": ["date"]
+    },
+    "SystemHealth": {
+      "title": "SystemHealth",
+      "description": "System uptime, broken link audit, and performance metrics",
+      "type": "object",
+      "properties": {
+        "lastChecked": { "type": "string" },
+        "status": { "type": "string" },
+        "uptimePercentage": { "type": "number" },
+        "responseTimeMs": { "type": "number" },
+        "brokenLinks": { "type": "array" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Stores user profile information"
+    },
+    "/admins/{adminId}": {
+      "schema": "Admin",
+      "description": "Stores authorized administrator IDs and roles"
+    },
+    "/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Stores incoming contact submissions and feedback"
+    },
+    "/waitlist/{waitlistId}": {
+      "schema": "Waitlist",
+      "description": "Stores waitlist early access submissions"
+    },
+    "/pages/{pageId}": {
+      "schema": "PageContent",
+      "description": "Stores customizable page text and dynamic custom pages"
+    },
+    "/pages/{pageId}/versions/{versionId}": {
+      "schema": "PageVersion",
+      "description": "Archived revisions and snapshots of page content"
+    },
+    "/analytics_daily/{dateId}": {
+      "schema": "DailyAnalytics",
+      "description": "Stores daily aggregated traffic metrics"
+    },
+    "/analytics_visitors/{visitorDocId}": {
+      "description": "Stores deduplicated daily unique anonymous visitor tokens"
+    },
+    "/system_health/{docId}": {
+      "schema": "SystemHealth",
+      "description": "Stores system uptime, link health, and audit logs"
+    },
+    "/test/{docId}": {
+      "schema": "TestConnection",
+      "description": "Connection test collection"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+/* Shared editorial treatment for the static inner pages. */
+.desktop-nav a.is-active,.mobile-nav a.is-active{color:white}
+.desktop-nav a.is-active{position:relative}
+.desktop-nav a.is-active:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:2px;border-radius:2px;background:var(--coral)}
+.mobile-nav a.is-active{font-weight:650}
+
+.page-hero{background:var(--navy);color:white;position:relative;overflow:hidden;padding:166px 0 112px}
+.page-hero:before{content:"";position:absolute;inset:0;opacity:.22;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:90px 90px;mask-image:linear-gradient(90deg,rgba(0,0,0,.85),transparent 82%)}
+.page-hero:after{content:"";position:absolute;width:620px;height:620px;right:-160px;top:-250px;border:1px solid rgba(127,167,255,.14);border-radius:50%;box-shadow:0 0 0 80px rgba(127,167,255,.025),0 0 0 165px rgba(127,167,255,.018)}
+.page-hero .container{position:relative;z-index:1}
+.page-hero-copy{max-width:710px}
+.page-hero h1{font-size:clamp(58px,8vw,104px);margin:27px 0 25px}
+.page-hero p{max-width:560px;color:rgba(255,255,255,.62);font-size:17px;line-height:1.65;margin:0}
+.page-crumb{display:flex;gap:10px;align-items:center;color:rgba(255,255,255,.4);font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.page-crumb span{color:var(--coral)}
+.page-intro{max-width:770px;margin-bottom:72px}
+.page-intro h2{margin-bottom:20px}
+.page-intro p{max-width:570px;color:var(--muted);font-size:16px}
+.page-section{padding:138px 0}
+.page-section--soft{background:#e8edee}
+.page-section--cream{background:#f0eee9}
+.page-section--dark{background:var(--navy);color:white}
+.page-section--dark .page-intro p{color:rgba(255,255,255,.6)}
+.page-section--dark .eyebrow{color:rgba(255,255,255,.55)}
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.detail-card{min-height:285px;padding:29px;border:1px solid var(--line);border-radius:var(--radius);background:white;position:relative;overflow:hidden}
+.detail-card:after{content:"";position:absolute;width:170px;height:170px;right:-82px;bottom:-84px;border:1px solid rgba(40,104,237,.18);border-radius:50%;box-shadow:0 0 0 28px rgba(40,104,237,.04)}
+.detail-card--blue{background:#dce9ff;border-color:#c7d8f3}
+.detail-card--sand{background:#eee7da;border-color:#e1d5c2}
+.detail-card--navy{background:var(--navy);color:white;border-color:#263958}
+.detail-index{font:11px var(--mono);color:#82909d}
+.detail-card--navy .detail-index{color:#8daef4}
+.detail-card h3{font-size:29px;margin:63px 0 13px;position:relative;z-index:1}
+.detail-card p{font-size:13px;line-height:1.6;color:var(--muted);max-width:270px;position:relative;z-index:1}
+.detail-card--navy p{color:rgba(255,255,255,.58)}
+.copy-grid{display:grid;grid-template-columns:1fr 1fr;gap:95px;align-items:start}
+.copy-grid h3{font-size:35px;margin-bottom:18px}
+.copy-grid p{color:var(--muted);font-size:15px;line-height:1.7}
+.copy-grid p+p{margin-top:20px}
+.principles{display:grid;gap:0;border-top:1px solid rgba(255,255,255,.15)}
+.principle{display:grid;grid-template-columns:48px 1fr;gap:18px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.principle .list-check{margin-top:2px}
+.principle strong{font-size:14px}
+.principle p{margin:6px 0 0;color:rgba(255,255,255,.5);font-size:12px}
+.page-callout{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:38px 42px;background:#d7e3fb;border-radius:var(--radius)}
+.page-callout h3{font-size:32px;margin:0 0 9px}
+.page-callout p{margin:0;color:#637692;font-size:13px}
+.page-callout .button{flex:none}
+.community-principles{display:grid;grid-template-columns:.85fr 1.15fr;gap:90px;align-items:center}
+.community-note{min-height:330px;padding:52px 55px;background:#d7e3fb;border-radius:var(--radius);position:relative;overflow:hidden}
+.community-note:after{content:"";position:absolute;width:260px;height:260px;right:-120px;bottom:-115px;border:1px solid rgba(40,104,237,.24);border-radius:50%;box-shadow:0 0 0 40px rgba(40,104,237,.05)}
+.community-note p{font:32px/1.12 var(--serif);font-style:italic;max-width:350px;position:relative;z-index:1}
+.community-note small{color:#71819a;font:9px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.community-copy h2{margin-top:0}
+.community-copy p{max-width:470px;color:var(--muted);font-size:15px;line-height:1.7}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
+.timeline-step{padding-top:19px;border-top:2px solid var(--blue)}
+.timeline-step span{font:10px var(--mono);color:#82909d}
+.timeline-step h3{font-size:26px;margin:28px 0 10px}
+.timeline-step p{color:var(--muted);font-size:13px}
+.legal-card{padding:35px 38px;border:1px solid var(--line);border-radius:var(--radius);background:white}
+.legal-card h3{font-size:28px;margin-bottom:13px}
+.legal-card p,.legal-card li{color:var(--muted);font-size:14px;line-height:1.75}
+.legal-card ul{padding-left:21px;margin-bottom:0}
+.legal-card+.legal-card{margin-top:20px}
+.page-form-layout{display:grid;grid-template-columns:1fr .85fr;gap:130px;align-items:start}
+.page-form-layout .contact-form{margin-top:0}
+.page-form-note{padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:36px;color:var(--muted);font-size:13px}
+.page-form-note strong{display:block;color:var(--ink);margin-bottom:7px}
+.join-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:70px}
+.join-benefit{padding:26px 0;border-top:2px solid rgba(255,255,255,.22)}
+.join-benefit strong{display:block;font-size:15px}
+.join-benefit p{color:rgba(255,255,255,.5);font-size:12px;line-height:1.6}
+.faq-page-layout{display:grid;grid-template-columns:.7fr 1.3fr;gap:120px}
+.faq-page-layout .faq-intro{position:sticky;top:125px;align-self:start}
+.faq-page-layout .faq-list{background:transparent}
+.faq-page-layout .faq-list summary{font-size:18px}
+.page-actions{display:flex;gap:12px;align-items:center;margin-top:34px}
+.page-actions .button-ghost{color:var(--ink);border-color:#c5cdd2}
+.page-actions .button-ghost:hover{background:#e8edee}
+
+@media (max-width:900px){
+  .page-hero{padding:137px 0 90px}
+  .page-hero h1{font-size:clamp(54px,12vw,84px)}
+  .page-section{padding:100px 0}
+  .detail-grid,.timeline,.join-benefits{grid-template-columns:1fr 1fr}
+  .copy-grid,.community-principles,.page-form-layout,.faq-page-layout{grid-template-columns:1fr;gap:45px}
+  .faq-page-layout .faq-intro{position:static}
+  .page-callout{align-items:flex-start;flex-direction:column}
+}
+@media (max-width:560px){
+  .page-hero{padding:120px 0 75px}
+  .page-hero h1{font-size:57px}
+  .page-hero p{font-size:15px}
+  .page-section{padding:88px 0}
+  .page-intro{margin-bottom:45px}
+  .detail-grid,.timeline,.join-benefits{grid-template-columns:1fr}
+  .detail-card{min-height:240px}
+  .detail-card h3{margin-top:48px}
+  .community-note{padding:42px 34px;min-height:285px}
+  .community-note p{font-size:28px}
+  .page-callout{padding:30px 25px}
+  .page-callout h3{font-size:28px}
+  .legal-card{padding:26px 23px}
+  .page-actions{align-items:stretch;flex-direction:column;max-width:245px}
+}
+
+
+/* Inner pages follow the same open, typographic grid as the landing page. */
+.page-hero{background:#fff;color:#111;padding:95px 0 82px;border-bottom:1px solid #e7e7e7}.page-hero:before,.page-hero:after{display:none}.page-hero-copy{max-width:850px}.page-hero h1{max-width:900px}.page-hero p{color:#5e5e5e;font-size:16px;max-width:560px}.page-crumb{color:#777}.page-crumb span{color:#111}.page-section{padding:100px 0}.page-section--soft,.page-section--cream{background:#f7f7f6}.page-section--dark{background:#111;color:#fff}.page-section--dark .page-intro p{color:#bbb}.page-section--dark .eyebrow{color:#aaa}.page-intro{max-width:800px;margin-bottom:50px}.page-intro h2{font-size:clamp(42px,6vw,70px)}.detail-grid{gap:0;border-top:1px solid #bbb}.detail-card,.detail-card--blue,.detail-card--sand,.detail-card--navy{min-height:245px;padding:24px 20px 24px 0;border:0;border-bottom:1px solid #ddd;border-radius:0;background:transparent;color:#111}.detail-card--navy p,.detail-card--navy .detail-index{color:#666}.detail-index{color:#777}.detail-card h3{font-size:27px;margin:48px 0 12px}.detail-card p{font-size:12px;color:#666}.copy-grid{gap:70px}.copy-grid h3{font-size:32px}.copy-grid p{font-size:14px;color:#606060}.principles{border-color:#555}.principle{border-color:#444}.principle p{color:#bbb}.list-check{color:#fff}.page-callout{border:1px solid #ddd}.community-principles{gap:65px}.timeline{gap:28px}.timeline-step{border-color:#111}.timeline-step h3{font-size:23px}.legal-card{background:#fff;border:1px solid #ddd;border-radius:0;padding:28px}.legal-card h3{font-size:24px}.legal-card p,.legal-card li{font-size:13px;color:#555}.page-form-layout{gap:90px}.page-form-note{border-color:#ccc}.join-benefit{border-color:#555}.join-benefit p{color:#aaa}.faq-page-layout{gap:70px}.faq-page-layout .faq-list{border-top:1px solid #555}.faq-page-layout .faq-list details{border-color:#555}.faq-page-layout .faq-list summary{color:#fff}.faq-page-layout .faq-answer{color:#bbb}.page-actions .button-ghost{color:#111;border-color:#aaa}.contact-detail{border-color:#ddd;color:#444}.community-wall{filter:grayscale(1)}
+@media(max-width:900px){.page-hero{padding:76px 0 65px}.page-section{padding:78px 0}.detail-grid,.timeline,.join-benefits{grid-template-columns:1fr 1fr}.page-form-layout{gap:45px}}
+@media(max-width:560px){.page-hero{padding:68px 0 55px}.page-hero h1{font-size:clamp(52px,15vw,66px)}.page-section{padding:66px 0}.detail-grid,.timeline,.join-benefits{grid-template-columns:1fr}.detail-card{min-height:0;padding:20px 0}.detail-card h3{margin-top:28px}.faq-page-layout{gap:30px}.legal-card{padding:22px}}
+
+/* Contrast fixes for light FAQ surfaces and the Community editorial note. */
+.faq-page-layout .faq-list{border-top-color:#bbb}.faq-page-layout .faq-list details{border-color:#ddd}.faq-page-layout .faq-list summary{color:#111}.faq-page-layout .faq-answer{color:#5f5f5f}.desktop-nav a.is-active,.mobile-nav a.is-active{color:#111}.desktop-nav a.is-active:after{background:#111}.community-manifesto{max-width:880px;padding:28px 0 0;border-top:1px solid #bbb}.community-manifesto p{max-width:760px;margin:35px 0 0;font:clamp(28px,4vw,48px)/1.15 var(--serif);letter-spacing:-.04em;color:#222}
+.legal-card p{white-space:pre-line;line-height:1.7}

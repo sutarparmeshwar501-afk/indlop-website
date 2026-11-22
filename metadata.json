@@ -1,0 +1,6 @@
+{
+  "name": "INDlop - Social Platform & Admin",
+  "description": "Multi-page platform for INDlop with Firebase authentication, Firestore contact & waitlist management, and secure admin panel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

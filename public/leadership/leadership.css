@@ -1,0 +1,29 @@
+/* Leadership route — scoped additions that inherit INDlop's shared editorial system. */
+.leadership-hero .page-hero-copy{max-width:820px}
+.leadership-section-heading{max-width:760px;margin-bottom:60px}
+.leadership-section-heading h2{font-size:clamp(42px,5.8vw,70px);margin:20px 0 0}
+.leadership-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:52px;row-gap:48px}
+.profile-photo-wrap{width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:4px}
+.profile-photo-image{display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%;border-radius:inherit}
+.leadership-profile{display:grid;grid-template-columns:minmax(112px,.72fr) minmax(0,1fr);gap:24px;align-items:start;border-top:1px solid #aaa;padding-top:28px}
+.profile-photo-placeholder{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:4/5;width:100%;margin:0;overflow:hidden;background:#f3f3f1;border:1px solid #e3e3df;color:#858585}
+.profile-photo-placeholder svg{width:42px;height:42px;fill:none;stroke:#a8a8a4;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.profile-photo-placeholder figcaption{position:absolute;left:8px;right:8px;bottom:9px;text-align:center;font:8px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#787873}
+.profile-meta{display:flex;justify-content:space-between;gap:10px;padding-bottom:14px;color:#777;font:9px var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.profile-meta span:last-child{color:#999}
+.profile-copy h3{margin:0 0 9px;font-size:clamp(24px,2.5vw,33px);line-height:1.08;letter-spacing:-.055em;font-weight:500}
+.profile-designation{margin:0 0 21px;color:#4d4d4d;font-size:12px;font-weight:600}
+.profile-bio{max-width:400px;margin:0;color:#626262;font-size:13px;line-height:1.7}
+.profile-links{display:flex;flex-wrap:wrap;gap:14px 18px;margin-top:22px;padding-top:13px;border-top:1px solid #ddd}
+.profile-link{display:inline-flex;align-items:center;gap:7px;color:#454545;font-size:10px;line-height:1.5;text-decoration:none;border-bottom:1px solid #c5c5c1;padding:0 0 3px;transition:color .2s ease,border-color .2s ease}
+a.profile-link:hover{color:#111;border-color:#111}
+a.profile-link:focus-visible{outline:2px solid #111;outline-offset:4px}
+.profile-link--placeholder{color:#858585;border-bottom-style:dashed}
+.leadership-note{margin:58px 0 0;padding-top:15px;border-top:1px solid #ddd;color:#777;font-size:11px}
+@media(max-width:900px){.leadership-section-heading{margin-bottom:46px}.leadership-grid{grid-template-columns:1fr;gap:42px}.leadership-profile{grid-template-columns:minmax(140px,.36fr) minmax(0,1fr);gap:28px}.profile-copy h3{font-size:32px}}
+@media(max-width:560px){.leadership-section-heading{margin-bottom:34px}.leadership-profile{grid-template-columns:100px minmax(0,1fr);gap:18px;padding-top:21px}.profile-photo-wrap{aspect-ratio:3/4}.profile-photo-placeholder{aspect-ratio:3/4}.profile-photo-placeholder figcaption{font-size:7px;bottom:7px}.profile-meta{display:block;font-size:8px;padding-bottom:10px}.profile-meta span:last-child{display:none}.profile-copy h3{font-size:25px}.profile-designation{font-size:11px;margin-bottom:14px}.profile-bio{font-size:12px;line-height:1.6}.profile-links{gap:10px 13px;margin-top:16px;padding-top:10px}.profile-link{font-size:9px}.leadership-note{margin-top:38px;font-size:10px}}
+
+/* Vineet Kumar portrait sizing: fixed responsive frame heights without changing its width. */
+.profile-photo-wrap{height:380px}
+.profile-photo-image{width:100%;height:380px;object-fit:cover;object-position:center 35%;overflow:hidden}
+@media(max-width:560px){.profile-photo-wrap{height:320px}.profile-photo-image{height:320px}}

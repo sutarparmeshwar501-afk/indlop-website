@@ -1,0 +1,152 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        (request.auth.token.email == 'spgotya49@gmail.com' && request.auth.token.email_verified == true)
+      );
+    }
+
+    // Connection testing
+    match /test/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Admin privileges collection
+    match /admins/{adminId} {
+      allow get: if isSignedIn() && (request.auth.uid == adminId || isAdmin());
+      allow list: if isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // Validation for User profile
+    function isValidUser(data) {
+      return data.email is string && data.email.size() > 0 && data.email.size() <= 254 &&
+        (!('displayName' in data) || (data.displayName is string && data.displayName.size() <= 100)) &&
+        data.role in ['user', 'admin'];
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      allow get: if isValidId(userId) && (isOwner(userId) || isAdmin());
+      allow list: if isAdmin();
+      allow create: if isValidId(userId) && isOwner(userId) && isValidUser(incoming()) &&
+        incoming().role == 'user' &&
+        incoming().keys().hasAll(['email', 'role', 'createdAt']) &&
+        incoming().keys().hasOnly(['email', 'displayName', 'role', 'createdAt', 'updatedAt']);
+      allow update: if isValidId(userId) && (
+        (isOwner(userId) && isValidUser(incoming()) &&
+          incoming().role == existing().role &&
+          incoming().email == existing().email &&
+          incoming().createdAt == existing().createdAt &&
+          incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'updatedAt'])) ||
+        isAdmin()
+      );
+      allow delete: if isValidId(userId) && isAdmin();
+    }
+
+    // Validation for Message
+    function isValidMessage(data) {
+      return data.name is string && data.name.size() > 0 && data.name.size() <= 100 &&
+        data.email is string && data.email.size() > 0 && data.email.size() <= 254 &&
+        data.message is string && data.message.size() > 0 && data.message.size() <= 5000 &&
+        data.status in ['Open', 'Pending', 'Resolved'] &&
+        (!('type' in data) || data.type in ['contact', 'support', 'feedback']);
+    }
+
+    // Messages & Contact Form Submissions Collection
+    match /messages/{messageId} {
+      allow get: if isValidId(messageId) && (isAdmin() || (isSignedIn() && existing().userId == request.auth.uid));
+      allow list: if isAdmin() || (isSignedIn() && resource.data.userId == request.auth.uid);
+      allow create: if isValidId(messageId) && isValidMessage(incoming()) &&
+        incoming().status == 'Open' &&
+        incoming().createdAt == request.time &&
+        incoming().keys().hasAll(['name', 'email', 'message', 'status', 'createdAt']) &&
+        incoming().keys().hasOnly(['name', 'email', 'message', 'type', 'status', 'createdAt', 'updatedAt', 'userId']);
+      allow update: if isValidId(messageId) && isAdmin() && isValidMessage(incoming()) &&
+        incoming().diff(existing()).affectedKeys().hasOnly(['status', 'updatedAt']);
+      allow delete: if isValidId(messageId) && isAdmin();
+    }
+
+    // Validation for Waitlist
+    function isValidWaitlist(data) {
+      return data.name is string && data.name.size() > 0 && data.name.size() <= 100 &&
+        data.email is string && data.email.size() > 0 && data.email.size() <= 254 &&
+        (!('handle' in data) || (data.handle is string && data.handle.size() <= 50)) &&
+        (!('message' in data) || (data.message is string && data.message.size() <= 1000)) &&
+        data.status in ['Open', 'Pending', 'Resolved'];
+    }
+
+    // Waitlist Submissions Collection
+    match /waitlist/{waitlistId} {
+      allow get: if isValidId(waitlistId) && (isAdmin() || (isSignedIn() && existing().userId == request.auth.uid));
+      allow list: if isAdmin();
+      allow create: if isValidId(waitlistId) && isValidWaitlist(incoming()) &&
+        incoming().status == 'Open' &&
+        incoming().createdAt == request.time &&
+        incoming().keys().hasAll(['name', 'email', 'status', 'createdAt']) &&
+        incoming().keys().hasOnly(['name', 'email', 'handle', 'message', 'status', 'createdAt', 'userId']);
+      allow update: if isValidId(waitlistId) && isAdmin() && isValidWaitlist(incoming()) &&
+        incoming().diff(existing()).affectedKeys().hasOnly(['status', 'updatedAt']);
+      allow delete: if isValidId(waitlistId) && isAdmin();
+    }
+
+    // Pages & CMS Collection (public read, admin write)
+    match /pages/{pageId} {
+      allow get, list: if true;
+      allow write: if isValidId(pageId) && isAdmin();
+
+      // Page Versions subcollection
+      match /versions/{versionId} {
+        allow get, list, write: if isValidId(versionId) && isAdmin();
+      }
+    }
+
+    // Daily Traffic Analytics
+    match /analytics_daily/{dateId} {
+      allow get, list: if isAdmin();
+      allow create, update: if isValidId(dateId);
+      allow delete: if isAdmin();
+    }
+
+    // Unique Visitor Deduplication
+    match /analytics_visitors/{visitorDocId} {
+      allow get, create, update: if isValidId(visitorDocId);
+      allow list, delete: if isAdmin();
+    }
+
+    // System Health & Monitoring
+    match /system_health/{docId} {
+      allow get, list, write: if isValidId(docId) && isAdmin();
+    }
+  }
+}
