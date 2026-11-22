@@ -362,3 +362,156 @@ html.dark .footer-bottom a:hover {
   color: #ffffff;
 }
 
+
+/* INDlop Premium Footer */
+.site-footer {
+  background: #fff !important;
+  color: #111 !important;
+  border-top: 1px solid #e5e5e5 !important;
+  padding-top: 65px;
+  position: relative;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: .8fr 1.7fr;
+  gap: 70px;
+  padding-top: 0;
+  padding-bottom: 65px;
+}
+
+.footer-brand p {
+  margin-top: 25px;
+  font-size: 19px;
+  line-height: 1.35;
+  color: #666;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.footer-links > div {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.footer-links strong {
+  color: #111 !important;
+  font: 10px var(--mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #666 !important;
+  font-size: 12px;
+  line-height: 1.5;
+  transition: color .2s ease;
+}
+
+.footer-links a:hover {
+  color: #000 !important;
+}
+
+.footer-bottom {
+  border-top: 1px solid #e5e5e5 !important;
+  padding-top: 23px;
+  padding-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: #777 !important;
+  font: 10px var(--mono);
+  letter-spacing: .04em;
+}
+
+.footer-bottom a {
+  color: #777 !important;
+}
+
+.footer-bottom a:hover {
+  color: #111 !important;
+}
+
+.footer-bottom > div {
+  margin-left: auto;
+  display: flex;
+  gap: 24px;
+}
+
+/* Footer Dark Mode */
+html.dark .site-footer {
+  background: #0c0c0e !important;
+  color: #f3f4f6 !important;
+  border-color: #27272a !important;
+}
+
+html.dark .footer-brand p {
+  color: #aaa;
+}
+
+html.dark .footer-links strong {
+  color: #f3f4f6 !important;
+}
+
+html.dark .footer-links a,
+html.dark .footer-bottom,
+html.dark .footer-bottom a {
+  color: #a1a1aa !important;
+}
+
+html.dark .footer-links a:hover,
+html.dark .footer-bottom a:hover {
+  color: #fff !important;
+}
+
+html.dark .footer-bottom {
+  border-color: #27272a !important;
+}
+
+/* Footer Responsive */
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-footer {
+    padding-top: 48px;
+  }
+
+  .footer-top {
+    padding-bottom: 42px;
+    gap: 38px;
+  }
+
+  .footer-links {
+    gap: 32px 20px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 20px;
+  }
+
+  .footer-bottom > div {
+    margin-left: 0;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+}
